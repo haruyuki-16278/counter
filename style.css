@@ -4,6 +4,13 @@
   padding: 0;
 }
 
+:root {
+  --color-primary: #b4e9ff;
+  --color-secondary: #dee7a2;
+
+  --height-header: 32px;
+}
+
 html,
 body {
   height: 100dvh;
@@ -19,7 +26,7 @@ body {
   align-items: center;
 
   & > span {
-    height: 32px;
+    height: var(--height-header);
     font-size: 24px;
     font-weight: bold;
   }
@@ -42,11 +49,27 @@ body {
       text-align: center;
     }
 
-    & > button.plus {
-      grid-area: plus;
-    }
-    & > button.minus {
-      grid-area: minus;
+    & > button {
+      width: 32px;
+      height: 32px;
+      border-radius: 100vh;
+      border: none;
+      background-color: var(--color-primary);
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: var(--color-secondary);
+      }
+
+      &.plus {
+        grid-area: plus;
+        margin-right: auto;
+      }
+      &.minus {
+        grid-area: minus;
+        margin-left: auto;
+      }
     }
   }
 }
